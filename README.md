@@ -1,4 +1,4 @@
-# 11ty-tailwind-simple-starter
+# Awards Winners 2021
 
 Install dependencies:
 `npm i`
