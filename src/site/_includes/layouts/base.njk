@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>@font-face {font-family: GTHaptik;font-weight: 400;src: url({{"/fonts/GT-Haptik-Regular.woff" | url }}) format('woff');}@font-face {font-family: GTHaptik;font-weight: 700;src: url({{"/fonts/GT-Haptik-Bold.woff" | url }}) format('woff');}</style>
+  <link rel="stylesheet" href="{{"/css/styles.css" | url }}">
+  <link rel="icon" type="image/x-icon" href="{{"/favicon.ico" | url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="AIGA Louisville Awards 100 Show 2021 Winners" />
+  <meta property="og:url" content="https://louisville.aiga.org/awards-show-2021" />
+  <meta property="og:title" content="Awards 2021" />
+  <meta property="og:description" content="AIGA Louisville's 100 Show Winners 2021" />
+  <meta property="og:image" content='https://louisville.aiga.org/awards-show-2021/images/og-card.jpg' />
+  <title>{{ pageTitle }}</title>
+</head>
+  <body>
+    {% include "components/_header.njk" %}
+    <main class="bg-blue-200">
+        {{ content | safe }}
+    </main>
+    {% include "components/_footer.njk" %}
+    {% set js %}
+      {% include "js/main.js" %}
+    {% endset %}
+    <script>{{ js | jsmin | safe }}</script>
+  </body>
+</html>

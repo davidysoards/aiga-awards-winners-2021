@@ -1,0 +1,64 @@
+---
+layout: default
+pageTitle: AIGA 100 Show 2021 Winners
+---
+
+{# winItem component #}
+{%- macro winItem(title, category, school_company, image_upload, video_upload, video_link, credit_1, credit_2, credit_3) %}
+<div class="my-6">
+  <p>{{category}}</p>
+  <h4>{{title}}</h4>
+  <p class="text-sm italic">{{school_company}}</p>
+  <ul>
+    <li>{{credit_1}}</li>
+    {% if credit_2 %}<li>{{credit_2}}</li>{% endif %}
+    {% if credit_3 %}<li>{{credit_3}}</li>{% endif %}
+  </ul>
+  <a href="{{image_upload}}">View Image</a>
+  {% if video_upload %}| <a href="{{video_upload}}">View Video</a>{% endif %}
+  {% if video_link %}| <a href="{{video_link}}">View Link</a>{% endif %}
+</div>
+{%- endmacro %}
+
+<section class="bg-gray-200">
+  <div class="container pt-8 pb-16">
+    <p class="text-sm italic">
+    Note: Links to images and videos are to the actual submitted files. File sizes are large and most are not web optimized.
+    <br>
+    Viewers on mobile data use caution.
+    </p>
+    <h2 class="my-4">🥇 Best In Category</h2>
+    <h3 class="mt-12">Professionals</h3>
+    {%- for item in siteData.pro %}
+      {{ winItem(item.title, item.category, item.school_company, item.image_upload, item.video_upload, item.video_link, item.credit_1, item.credit_2, item.credit_3) }}
+    {%- endfor %}
+
+    <h3 class="mt-12">Students</h3>
+    {%- for item in siteData.student %}
+      {{ winItem(item.title, item.category, item.school_company, item.image_upload, item.video_upload, item.video_link, item.credit_1, item.credit_2, item.credit_3) }}
+    {%- endfor %}
+
+    <h3 class="mt-12">High School</h3>
+    {%- for item in siteData.highSchool %}
+      {{ winItem(item.title, item.category, item.school_company, item.image_upload, item.video_upload, item.video_link, item.credit_1, item.credit_2, item.credit_3) }}
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="bg-gray-300">
+  <div class="container py-16">
+    <h2 class="mb-12">🏆 Notables</h2>
+    {%- for item in siteData.notable %}
+      {{ winItem(item.title, item.category, item.school_company, item.image_upload, item.video_upload, item.video_link, item.credit_1, item.credit_2, item.credit_3) }}
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="bg-gray-200">
+  <div class="container py-16">
+    <h2 class="mb-12">🏆 Finalists</h2>
+    {%- for item in siteData.finalist %}
+      {{ winItem(item.title, item.category, item.school_company, item.image_upload, item.video_upload, item.video_link, item.credit_1, item.credit_2, item.credit_3) }}
+    {%- endfor %}
+  </div>
+</section>
